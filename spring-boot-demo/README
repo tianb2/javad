@@ -1,0 +1,7 @@
+./gradlew bootRun
+
+> GET http://localhost:8080/hello
+< hello me
+
+> GET http://localhost:8080/hello?name=you
+< hello you
