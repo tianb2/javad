@@ -1,0 +1,53 @@
+# web, hateoas
+
+_link in a response is part of a hypermedia-driven api idea from REST HATEOAS
+
+it's a convention for including machine-readable hyperlinks in the data so the
+client knows what URLs to call next, without hardcoding them
+
+it's like HTML links for programs - guiding navigation between API resources
+
+_links sections is a convention to store those hyperlinks in JSON (HAL format)
+
+
+Hypermedia
+
+Media = content like JSON, HTML, XML
+Hyper = contains links to other resources
+
+html pages have <a /> links that's hypermedia for humans
+
+in APIs, JSON or XML can also contain links but for machines to follow
+
+HATEOAS - Hypermedia as the Engine of Application State
+
+{
+  "id": 1,
+  "name": "Alice",
+  "_links": {
+    "self": { "href": "/users/1" },
+    "orders": { "href": "/users/1/orders" }
+  }
+}
+
+> GET http://localhost:8080/greeting
+
+{
+  "content": "hello me",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/greeting?name=me"
+    }
+  }
+}
+
+> GET http://localhost:8080/greeting?name=ok
+
+{
+  "content": "hello ok",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/greeting?name=ok"
+    }
+  }
+}
