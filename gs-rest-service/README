@@ -1,0 +1,21 @@
+./gradlew bootRun
+
+or 
+
+./gradlew build
+java -jar build/libs/{JAR_NAME}.jar
+
+# web, json api, get
+
+> GET http://localhost:8080/greeting
+
+{"id":1,"content":"hello, me"}
+
+> GET http://localhost:8080/greeting
+
+{"id":2,"content":"hello, me"}
+
+> GET http://localhost:8080/greeting?name=you
+
+{"id":3,"content":"hello, you"}
+
